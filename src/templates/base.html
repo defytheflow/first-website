@@ -1,27 +1,25 @@
-<!-- bootstrap stuff -->
-
-{% load bootstrap4 %}
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
-{% bootstrap_messages %}
-
 <!doctype html>
 <html lang="en">
 
-  <head>
+  {% load bootstrap4 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript jquery='full' %}
+  {% bootstrap_messages %}
 
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}{% endblock %}</title>
     {% block css %} {% endblock %}
-
   </head>
 
   <body>
+    {% if request.user.is_authenticated %}
+      {% include 'includes/navbar.html' %}
+    {% endif %}
 
     {% block content %} {% endblock %}
     {% block js %} {% endblock %}
-
   </body>
 
 </html>

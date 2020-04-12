@@ -1,4 +1,4 @@
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
@@ -9,7 +9,6 @@ from .decorators import anonymous_required
 
 @method_decorator(anonymous_required, name='dispatch')
 class SignInView(View):
-    ''' User sign-in view. '''
 
     template_name = 'accounts/sign-in.html'
     form_class = AuthenticationForm
@@ -25,3 +24,10 @@ class SignInView(View):
             login(request, user)
             return redirect('home')
         return render(request, self.template_name, {'form': form})
+
+
+class SignOutView(View):
+
+    def get(self, request):
+        logout(request)
+        return redirect('sign-in')
