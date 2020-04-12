@@ -3,11 +3,29 @@
 
 {% block title %} Sign in {% endblock %}
 
+{% block css %}
+  <style>
+    html, body {
+      height: 100%;
+    }
+    .container {
+      height: 100%;
+    }
+  </style>
+{% endblock %}
+
 {% block content %}
-  <form action="{% url 'sign-in' %}" method="post">{% csrf_token %}
-    {% bootstrap_form form %}
-    {% buttons %}
-      <button type="submit" class="btn btn-success">Sign in</button>
-    {% endbuttons %}
-  </form>
+  <div class="container">
+    <div class="row justify-content-center h-100">
+      <div class="col-sm-4 my-auto">
+        <form action="{% url 'sign-in' %}" method="post">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          {% buttons %}
+            <button type="submit" class="btn btn-success">Sign in</button>
+          {% endbuttons %}
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}
