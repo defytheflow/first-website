@@ -15,7 +15,7 @@
 
   <body>
     {% if request.user.is_authenticated %}
-      {% include 'includes/navbar.html' %}
+      {% include 'includes/auth-navbar.html' %}
     {% endif %}
 
     {% block content %} {% endblock %}
