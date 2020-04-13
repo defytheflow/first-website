@@ -5,11 +5,11 @@ from django.views import View
 from django.conf import settings
 
 from .decorators import anonymous_required
-from .forms import SignupForm, LoginForm
+from .forms import LoginForm, SignupForm
 
 
 @method_decorator(anonymous_required, name='dispatch')
-class LoginPage(View):
+class LoginView(View):
 
     template_name = 'accounts/login.html'
     form_class = LoginForm
@@ -27,7 +27,7 @@ class LoginPage(View):
 
 
 @method_decorator(anonymous_required, name='dispatch')
-class SignupPage(View):
+class SignupView(View):
 
     template_name = 'accounts/signup.html'
     form_class = SignupForm
@@ -44,8 +44,8 @@ class SignupPage(View):
         return render(request, self.template_name, {'form': form})
 
 
-class SignoutView(View):
+class LogoutView(View):
 
     def get(self, request):
         logout(request)
-        return redirect(settings.LOGIN_URL)
+        return redirect(settings.LOGOUT_REDIRECT_URL)

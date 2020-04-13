@@ -21,8 +21,6 @@ urlpatterns = [
         name='home',
     ),
     path('admin/', admin.site.urls),
-    # accounts
-    path('', include('accounts.urls')),
-    # profiles
-    path('<slug:username>', include('profiles.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('profiles/', include('profiles.urls')),
 ]
