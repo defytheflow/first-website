@@ -1,25 +1,19 @@
 <!doctype html>
 <html lang="en">
-
+  {% load static %}
   {% load bootstrap4 %}
-  {% bootstrap_css %}
-  {% bootstrap_javascript jquery='full' %}
-  {% bootstrap_messages %}
-
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}{% endblock %}</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    {% bootstrap_messages %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block css %} {% endblock %}
   </head>
-
   <body>
-    {% if request.user.is_authenticated %}
-      {% include 'includes/auth-navbar.html' %}
-    {% endif %}
-
     {% block content %} {% endblock %}
     {% block js %} {% endblock %}
   </body>
-
 </html>

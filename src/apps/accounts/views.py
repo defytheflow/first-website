@@ -4,14 +4,14 @@ from django.utils.decorators import method_decorator
 from django.views import View
 
 from .decorators import anonymous_required
-from .forms import SignUpForm, SignInForm
+from .forms import SignupForm, LoginForm
 
 
 @method_decorator(anonymous_required, name='dispatch')
-class SignInPage(View):
+class LoginPage(View):
 
-    template_name = 'accounts/sign-in.html'
-    form_class = SignInForm
+    template_name = 'accounts/login.html'
+    form_class = LoginForm
 
     def get(self, request):
         form = self.form_class()
@@ -27,10 +27,10 @@ class SignInPage(View):
 
 
 @method_decorator(anonymous_required, name='dispatch')
-class SignUpPage(View):
+class SignupPage(View):
 
-    template_name = 'accounts/sign-up.html'
-    form_class = SignUpForm
+    template_name = 'accounts/signup.html'
+    form_class = SignupForm
 
     def get(self, request):
         form = self.form_class()
@@ -40,12 +40,12 @@ class SignUpPage(View):
         form = self.form_class(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('sign-in')
+            return redirect('login')
         return render(request, self.template_name, {'form': form})
 
 
-class SignOutView(View):
+class SignoutView(View):
 
     def get(self, request):
         logout(request)
-        return redirect('sign-in')
+        return redirect('login')

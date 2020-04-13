@@ -100,7 +100,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_DIRS = [os.path.join(APPS_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
-LOGIN_URL = '/'
+LOGIN_URL = 'login'

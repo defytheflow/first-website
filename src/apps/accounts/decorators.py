@@ -6,7 +6,7 @@ def anonymous_required(function):
 
     def decorator(request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('home')
+            return redirect('/')
         return function(request, *args, **kwargs)
 
     return decorator
