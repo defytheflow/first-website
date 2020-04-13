@@ -1,7 +1,8 @@
+{% load static %}
+{% load bootstrap4 %}
+
 <!doctype html>
 <html lang="en">
-  {% load static %}
-  {% load bootstrap4 %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,6 +12,7 @@
     {% bootstrap_messages %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block css %} {% endblock %}
+    <link rel="shortcut icon" href="{% static 'img/logo.jpeg' %}">
   </head>
   <body>
     {% block content %} {% endblock %}

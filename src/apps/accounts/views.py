@@ -2,6 +2,7 @@ from django.contrib.auth import login, logout
 from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
 from django.views import View
+from django.conf import settings
 
 from .decorators import anonymous_required
 from .forms import SignupForm, LoginForm
@@ -20,9 +21,8 @@ class LoginPage(View):
     def post(self, request):
         form = self.form_class(data=request.POST)
         if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            return redirect(f'/{user.username}')
+            login(request, form.get_user())
+            return redirect(settings.LOGIN_REDIRECT_URL)
         return render(request, self.template_name, {'form': form})
 
 
@@ -40,7 +40,7 @@ class SignupPage(View):
         form = self.form_class(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect(settings.LOGIN_URL)
         return render(request, self.template_name, {'form': form})
 
 
@@ -48,4 +48,4 @@ class SignoutView(View):
 
     def get(self, request):
         logout(request)
-        return redirect('login')
+        return redirect(settings.LOGIN_URL)
