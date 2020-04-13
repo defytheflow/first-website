@@ -19,3 +19,7 @@ class SignInForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs);
         self.fields['username'].widget.attrs.pop("autofocus", None)
+
+    error_messages = {
+        'invalid_login': 'Incorrect username or password',
+    }

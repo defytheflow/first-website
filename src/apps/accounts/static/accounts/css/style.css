@@ -2,6 +2,31 @@ html, body {
   height: 100%;
 }
 
-.container {
-  height: 100%;
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5; /* light grey */
+}
+
+.form-account {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-account input {
+  height: auto;
+  border-radius: 2rem;
+}
+
+.form-account button {
+    font-size: 90%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    transition: all 0.2s;
 }

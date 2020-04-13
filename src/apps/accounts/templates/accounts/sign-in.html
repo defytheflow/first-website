@@ -3,32 +3,28 @@
 {% load static %}
 {% load bootstrap4 %}
 
-{% block title %} Sign in {% endblock %}
+{% block title %} Sign in • defytheschool {% endblock %}
 
 {% block css %}
   <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
 {% endblock %}
 
 {% block content %}
-  <div class="container">
-    <div class="row justify-content-center h-100">
-      <div class="col-sm-4 my-auto">
+  <div class="container text-center">
+    <form class="form-account" action="{% url 'sign-in' %}" method="post">
+      {% csrf_token %}
 
-        <form action="{% url 'sign-in' %}" method="post">{% csrf_token %}
-          {% for field in form %}
-            {% bootstrap_field field %}
-          {% endfor %}
+      {% bootstrap_form_errors form %}
+      {% for field in form %}
+        {% bootstrap_field field show_label=False %}
+      {% endfor %}
 
-          <div class="text-center">
-            {% bootstrap_button "Sign in" button_type="submit" button_class="btn-success" %}
-          </div>
-        </form>
+      <button class="btn btn-block btn-success text-uppercase" type="submit">
+        Sign in</button>
 
-        <div class="text-center">
-          <p>Don't have an account? <a href="{% url 'sign-up' %}"><b>Sign up</b></a></p>
-        </div>
+      <hr class="my-4">
 
-      </div>
-    </div>
+      <p>Don't have an account? <a href="{% url 'sign-up' %}"><b>Sign up</b></a></p>
+    </form>
   </div>
 {% endblock %}

@@ -8,25 +8,7 @@ from .forms import SignUpForm, SignInForm
 
 
 @method_decorator(anonymous_required, name='dispatch')
-class SignUpView(View):
-
-    template_name = 'accounts/sign-up.html'
-    form_class = SignUpForm
-
-    def get(self, request):
-        form = self.form_class()
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request):
-        form = self.form_class(data=request.POST)
-        if form.is_valid():
-            user = form.save()
-            return redirect('sign-in')
-        return render(request, self.template_name, {'form': form})
-
-
-@method_decorator(anonymous_required, name='dispatch')
-class SignInView(View):
+class SignInPage(View):
 
     template_name = 'accounts/sign-in.html'
     form_class = SignInForm
@@ -40,7 +22,25 @@ class SignInView(View):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('home')
+            return redirect(f'/{user.username}')
+        return render(request, self.template_name, {'form': form})
+
+
+@method_decorator(anonymous_required, name='dispatch')
+class SignUpPage(View):
+
+    template_name = 'accounts/sign-up.html'
+    form_class = SignUpForm
+
+    def get(self, request):
+        form = self.form_class()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = self.form_class(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('sign-in')
         return render(request, self.template_name, {'form': form})
 
 
