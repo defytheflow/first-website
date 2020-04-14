@@ -11,7 +11,7 @@
 
 {% block content %}
   <div class="container text-center">
-    <form class="form-account" action="{% url 'login' %}" method="POST">
+    <form class="form-accounts" action="{% url 'login' %}" method="POST">
       {% csrf_token %}
 
       {% bootstrap_form_errors form type=non_field %}

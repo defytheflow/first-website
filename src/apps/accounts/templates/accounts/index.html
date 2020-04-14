@@ -10,7 +10,8 @@
 {% endblock %}
 
 {% block content %}
-  <nav class="navbar">
+  <nav class="navbar fixed-top nav-accounts">
+    <a class="navbar-brand" href="{% url 'index' %}">defytheflow</a>
     <form class="form-inline" action="{% url 'login' %}" method="POST">
       {% csrf_token %}
       {% bootstrap_form form show_label=False %}

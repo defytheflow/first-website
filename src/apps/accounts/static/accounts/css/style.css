@@ -7,7 +7,7 @@ body {
   align-items: center;
 }
 
-.form-account {
+.form-accounts {
   color: #fff;
   width: 100%;
   max-width: 330px;
@@ -15,22 +15,22 @@ body {
   margin: auto;
 }
 
-.form-account input {
+.form-accounts input {
   height: auto;
   border-radius: 2rem;
 }
 
-.form-account button {
+.form-accounts button {
   font-size: 90%;
   border-radius: 2rem;
   letter-spacing: .1rem;
   transition: all 0.2s;
 }
 
-.form-account a {
+.form-accounts a {
   font-weight: bold;
 }
 
-.form-account p {
+.form-accounts p {
   padding: 15px;
 }
