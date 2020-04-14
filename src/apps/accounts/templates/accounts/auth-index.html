@@ -6,20 +6,20 @@
 {% block title %}defytheschool{% endblock %}
 
 {% block css %}
-  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
 {% endblock %}
 
 {% block content %}
   <nav class="site-header sticky-top py-1">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="nav-link" href="#">Home</a>
-        <a class="nav-link" href="#">My profile</a>
+      <a class="nav-link" href="{% url 'index' %}">Home</a>
     <a class="nav-link dropdown-toggle" href="#" id="navbar-dropdown-menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       {{ request.user.first_name }} {{ request.user.last_name }}
     </a>
     <div class="dropdown-menu" aria-labelledby="navbar-dropdown-menu">
+      <a class="dropdown-item" href="#">My profile</a>
       <a class="dropdown-item" href="#">Settings</a>
-      <a class="dropdown-item" href="#">Log out</a>
+      <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
     </div>
       </div>
   </nav>
