@@ -1,10 +1,24 @@
-body, html {
+html, body {
   height: 100%;
+  color: #fff;
 }
 
-body {
-  display: flex;
-  align-items: center;
+.nav-accounts .navbar-brand {
+  color: lightpink;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.nav-accounts input {
+  margin: 5px;
+  border-radius: 2rem;
+}
+
+.nav-accounts button {
+  margin: 5px;
+  border-radius: 2rem;
+  letter-spacing: .1rem;
+  transition: all 0.2s;
 }
 
 .form-accounts {
@@ -27,10 +41,18 @@ body {
   transition: all 0.2s;
 }
 
+.form-accounts h2 {
+  margin: 15px;
+}
+
 .form-accounts a {
   font-weight: bold;
 }
 
 .form-accounts p {
   padding: 15px;
+}
+
+main {
+  margin-top: 10%;
 }

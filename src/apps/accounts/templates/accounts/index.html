@@ -6,23 +6,27 @@
 {% block title %}defytheflow{% endblock %}
 
 {% block css %}
-  <link rel="stylesheet" href="{% static 'accounts/css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
 {% endblock %}
 
 {% block content %}
-  <nav class="navbar fixed-top nav-accounts">
+  <nav class="navbar nav-accounts">
     <a class="navbar-brand" href="{% url 'index' %}">defytheflow</a>
     <form class="form-inline" action="{% url 'login' %}" method="POST">
       {% csrf_token %}
-      {% bootstrap_form form show_label=False %}
+      {% bootstrap_form login_form show_label=False %}
       <button class="btn btn-success" type="submit">LOG IN</button>
     </form>
   </nav>
 
-  <!-- <main class="container text-center"> -->
-  <!--   <h1>Welcome to defytheflow!</h1> -->
-  <!--   <a class="btn btn-lg btn-success" href="{% url 'signup' %}"> -->
-  <!--     Create an account -->
-  <!--   </a> -->
-  <!-- </main> -->
+  <div class="container h-100">
+    <div class="row h-100">
+      <form class="form-accounts" action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+        <h2 class="text-center">Create an account</h2>
+        {% bootstrap_form signup_form show_label=False show_help=False%}
+        <button class="btn btn-block btn-success" type="submit">SIGN UP</button>
+      </form>
+    </div>
+  </div>
 {% endblock %}

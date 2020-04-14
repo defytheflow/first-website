@@ -6,19 +6,21 @@
 {% block title %} Login • defytheflow {% endblock %}
 
 {% block css %}
-  <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
 {% endblock %}
 
 {% block content %}
-  <div class="container text-center">
-    <form class="form-accounts" action="{% url 'login' %}" method="POST">
-      {% csrf_token %}
+  <div class="container text-center h-100">
+    <div class="row h-100">
+      <form class="form-accounts" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
 
-      {% bootstrap_form_errors form type=non_field %}
-      {% bootstrap_form form show_label=False %}
-      <button class="btn btn-block btn-success" type="submit">LOG IN</button>
+        {% bootstrap_form_errors form type=non_field %}
+        {% bootstrap_form form show_label=False %}
+        <button class="btn btn-block btn-success" type="submit">LOG IN</button>
 
-      <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
-    </form>
+        <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+      </form>
+     </div>
   </div>
 {% endblock %}

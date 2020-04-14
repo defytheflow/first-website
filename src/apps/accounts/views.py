@@ -12,18 +12,12 @@ from .forms import LoginForm, SignupForm
 class IndexView(View):
 
     template_name = 'accounts/index.html'
-    form_class = LoginForm
 
     def get(self, request):
-        form = self.form_class()
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request):
-        form = self.form_class(data=request.POST)
-        if form.is_valid():
-            login(request, form.get_user())
-            return redirect(settings.LOGIN_REDIRECT_URL)
-        return redirect(settings.LOGIN_URL)
+        context = {
+            'login_form': LoginForm(), 'signup_form': SignupForm()
+        }
+        return render(request, self.template_name, context)
 
 
 @method_decorator(anonymous_required, name='dispatch')
