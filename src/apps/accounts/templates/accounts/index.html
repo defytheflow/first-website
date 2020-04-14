@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %}defytheflow{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'accounts/css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+  <nav class="navbar">
+    <form class="form-inline" action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      {% bootstrap_form form show_label=False %}
+      <button class="btn btn-success" type="submit">LOG IN</button>
+    </form>
+  </nav>
+
+  <!-- <main class="container text-center"> -->
+  <!--   <h1>Welcome to defytheflow!</h1> -->
+  <!--   <a class="btn btn-lg btn-success" href="{% url 'signup' %}"> -->
+  <!--     Create an account -->
+  <!--   </a> -->
+  <!-- </main> -->
+{% endblock %}
