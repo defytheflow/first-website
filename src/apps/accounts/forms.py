@@ -15,7 +15,7 @@ class SignupForm(UserCreationForm):
         self.fields['username'].widget.attrs.pop("autofocus", None)
 
 
-class LoginForm(AuthenticationForm):
+class SigninForm(AuthenticationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

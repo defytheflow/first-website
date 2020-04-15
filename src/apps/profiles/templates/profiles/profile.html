@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  {{ request.user.first_name }} {{ request.user.last_name }}
+{{ request.user.first_name }} {{ request.user.last_name }}
+(@{{ request.user.username }})
 {% endblock %}
 
 {% block content %}
-  <div class="container">
-    Welcome, defytheschooler!
-  </div>
 {% endblock %}

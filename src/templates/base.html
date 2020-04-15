@@ -15,6 +15,10 @@
     <!-- <link rel="shortcut icon" href="{% static 'img/logo.jpeg' %}"> -->
   </head>
   <body>
+    {% if request.user.is_authenticated %}
+      {% include 'includes/auth-navbar.html' %}
+    {% endif %}
+
     {% block content %} {% endblock %}
     {% block js %} {% endblock %}
   </body>

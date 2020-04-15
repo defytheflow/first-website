@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %} Settings {% endblock %}
+
+{% block css %}
+  <link rel"stylesheet" href="{% static 'settings/css/settings.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <ul>
+    <li><a href="{% url 'password-change' %}">Change password</a></li>
+  </ul>
+</div>
+{% endblock %}
