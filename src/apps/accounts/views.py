@@ -1,15 +1,16 @@
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth import login, logout
-from django.shortcuts import redirect, render
-from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.generic.base import TemplateView
-from django.contrib import messages
 
 from .decorators import anonymous_required
-from .forms import SigninForm, SignupForm
+from .forms import (
+    SigninForm, SignupForm, UsernameChangeForm, PasswordChangeForm
+)
 
 
 class IndexView(TemplateView):
@@ -80,9 +81,9 @@ class SettingsView(TemplateView):
 
 
 @method_decorator(login_required(redirect_field_name=None), name='dispatch')
-class CustomPasswordChangeView(View):
+class PasswordChangeView(View):
 
-    template_name = 'accounts/change-password.html'
+    template_name = 'accounts/password-change.html'
     form_class = PasswordChangeForm
 
     def get(self, request):
@@ -95,5 +96,24 @@ class CustomPasswordChangeView(View):
             user = form.save()
             login(request, user)
             messages.success(request, message='Password has been changed.')
-            return redirect('password-change')
+            return redirect('settings')
+        return render(request, self.template_name, {'form': form})
+
+
+@method_decorator(login_required(redirect_field_name=None), name='dispatch')
+class UsernameChangeView(View):
+
+    template_name = 'accounts/username-change.html'
+    form_class = UsernameChangeForm
+
+    def get(self, request):
+        form = self.form_class(user=request.user)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = self.form_class(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, message='Username has been changed.')
+            return redirect('settings')
         return render(request, self.template_name, {'form': form})

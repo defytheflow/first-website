@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %} Change username {% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container text-center h-100">
+    <div class="row h-100">
+      <form class="form-accounts" action="{% url 'username-change' %}" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form_errors form type=non_field %}
+        {% bootstrap_form form show_label=False show_help=False %}
+        <button class="btn btn-block btn-success" type="submit">CHANGE USERNAME</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
