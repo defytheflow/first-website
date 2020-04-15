@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
+{% load static %}
+{% load bootstrap4 %}
+
 {% block title %}
-{{ request.user.first_name }} {{ request.user.last_name }}
-(@{{ request.user.username }})
+{{ request.user.first_name }} {{ request.user.last_name }} (@{{ request.user.username }})
 {% endblock %}
 
 {% block content %}
+  <img src="{{ request.user.profile.get_photo_url }}" alt="profile-photo" width="350" height="250">
 {% endblock %}

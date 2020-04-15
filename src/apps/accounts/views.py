@@ -63,6 +63,7 @@ class SignupView(View):
         form = self.form_class(data=request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, message='User has been created.')
             return redirect(settings.LOGIN_URL)
         return render(request, self.template_name, {'form': form})
 
