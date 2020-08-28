@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'sport/css/add_form.css' %}">
+{% endblock %}
+
+{% block title %}Update Workout{% endblock %}
+
+{% block content %}
+
+<form id="update" method="post" action='/sport/{{workout_date}}/update/' style="color:white;"> {% csrf_token %}
+    <label for="date">Date</label>
+    <input class="form-control form-control-lg" type="text" id="date" name="date" autofocus autocomplete="off" required
+    value="{{ workout_date }}">
+    <label for="body_part1">Body part</label>
+    <input class="form-control form-control-lg" type="text" id="body_part1" name="body_part1" autocomplete="off" required
+    value="{{ workout.body_part1 }}">
+    <label for="num_exercises1">Exercises</label>
+    <input class="form-control form-control-lg" type="text" id="num_exercises1" name="num_exercises1" autocomplete="off"
+    value="{{ workout.num_exercises1 }}">
+    <label for="body_part2">Body part</label>
+    <input class="form-control form-control-lg" type="text" id="body_part2" name="body_part2" autocomplete="off"
+    {% if workout.body_part2 %}value="{{ workout.body_part2 }}"{% endif %}>
+    <label for="num_exercises2">Exercises</label>
+    <input class="form-control form-control-lg" type="text" id="num_exercises2" name="num_exercises2" autocomplete="off"
+    {% if workout.num_exercises2 %}value="{{ workout.num_exercises2 }}"{% endif %}>
+    <label for="cardio">Cardio</label>
+    <input class="form-control form-control-lg" type="text" id="cardio" name="cardio" autocomplete="off"
+    {% if workout.cardio %}value="{{ workout.cardio }}"{% endif %}>
+    <label for="cardio_load">Cardio load</label>
+    <input class="form-control form-control-lg" type="text" id="cardio_load" name="cardio_load" autocomplete="off"
+    {% if workout.cardio_load %}value="{{ workout.cardio_load }}"{% endif %}>
+    <div class="form-group">
+        <label for="summary">Summary</label>
+        <textarea class="form-control" id="summary" name="summary" rows="3" required>{{ workout.summary }}</textarea>
+    </div>
+</form>
+
+<nav class="navbar fixed-bottom navbar-light">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a href="../"><input type="button" class="btn btn-lg btn-success" value="Back"
+            style="background-color: #FF1493;border-color: #000;"></a>
+            <button type="submit" class="btn btn-lg btn-success" form="update"
+                    style="border-color: black; background-color:#FF1493;">Update</button>
+        </li>
+    </ul>
+</nav>
+
+{% endblock %}

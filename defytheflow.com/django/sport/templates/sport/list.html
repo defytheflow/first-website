@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'sport/css/list.css' %}">
+{% endblock %}
+
+{% block title %}Show All Workouts{% endblock %}
+
+{% block content %}
+<form>
+<nav class="navbar navbar-light ">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="padding-left:0;">Workouts this month: {{ workouts|length }} </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/sport/stats/" tabindex="-1" aria-disabled="true" style="color:#FF1493;padding-left:0;">Stats </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/sport/suggest/" tabindex="-1" aria-disabled="true"
+               style="color:#FF1493;padding-left:0;">Suggest </a>
+        </li>
+    </ul>
+</nav>
+
+
+
+    <div class="list-group">
+        {% for workout in workouts %}
+            <a href="{% url 'workout-detail' workout.date %}" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">{{ workout.body_part1 }}</h5>
+                  <small>{{ workout.date }}</small>
+                </div>
+                <p class="mb-1">{{ workout.summary }}</p>
+                <small></small>
+            </a>
+        {% endfor %}
+    </div>
+
+    <nav class="navbar fixed-bottom navbar-light">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+            <a href="../"><input type="button" class="btn btn-lg btn-success" value="Back"
+            style="background-color: #FF1493;border-color: #000;"></a>
+            <a href="{% url 'add-new-workout' %}"><input type="button" class="btn btn-success btn-lg" value="New"
+            style="background-color: #FF1493;
+            border-color: #000;"></a>
+            </li>
+        </ul>
+    </nav>
+</form>
+{% endblock %}

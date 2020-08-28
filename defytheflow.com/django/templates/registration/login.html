@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'registration/css/login.css' %}">
+{% endblock %}
+
+{% block title %}Log in{% endblock %}
+
+{% block content %}
+    <form class="form-signin" method="post" action="/login/"> {% csrf_token %}
+      <h1 class="h3 mb-3 font-weight-normal">Please Log in</h1>
+      <label for="username" class="sr-only">User name</label>
+      <input type="text" id="username" class="form-control" placeholder="Username" name="username" required autofocus
+      autocomplete="off">
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" class="form-control" placeholder="Password" name = "password" required
+      autocomplete="off">
+      <button class="btn btn-lg btn-primary btn-block" type="submit"
+      style="background-color: #FF1493;border-color:black;">Log in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; Defytheflow 2019</p>
+    </form>
+{% endblock %}

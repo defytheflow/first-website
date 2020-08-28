@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock head %}
+
+{% block title %} Landing {% endblock title %}
+
+{% block header %}
+{{ super() }}
+{% endblock header %}
+
+{% block home %}
+<li><a href="landing.html"> Home </a></li>
+{% endblock home %}
+
+{% block login %}
+{{ super() }}
+{% endblock login %}
+
+{% block body %}
+
+<div class="container" >
+  <ul class="nav nav-tabs nav-justified">
+    {% block app %}
+    <li><a href="#" style="color:#555;border-color:#dff0d8;">1</a></li>
+    <li><a href="#" style="color:#555;border-color:#dff0d8;">2</a></li>
+    {% endblock app %}
+  </ul>
+</div>
+<br>
+<div class="container">
+  <div class="jumbotron" style="background-color:#333333;color:white;">
+    <h2 style="text-align:center;">New perspective on education</h2>
+    <br>
+      <div class="container">
+          <div class="panel-group" id="accordion">
+            <div class="panel panel-success" >
+              <div class="panel-heading" >
+                <h4 class="panel-title" style="text-align:center;" >
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" >Quit</a>
+                </h4>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body" style="text-align:center;border: solid black 2px;">
+                    <img src="static/quit.jpg" class="img-thumbnail" alt="quit" width="304" height="236">
+                    <p style="font-size:16px;color:black;">First of all, You quit university/college you are currently studying at.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h4 class="panel-title" style="text-align:center;">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Start</a>
+                </h4>
+              </div>
+              <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body" style="text-align:center;border: solid black 2px;">
+                   <img src="static/start.jpg" class="img-thumbnail" alt="start" width="304" height="236">
+                   <p style="font-size:16px;color:black;">Secondly, You start learning on your own, hustling the shit out of you.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h4 class="panel-title" style="text-align:center;">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Change</a>
+                </h4>
+              </div>
+              <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body" style="text-align:center;border: solid black 2px;">
+                   <img src="static/change.jpg" class="img-thumbnail" alt="change" width="304" height="236">
+                   <p style="font-size:16px;color:black;">Finally, You change your life, people around you and the whole world!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% endblock body %}

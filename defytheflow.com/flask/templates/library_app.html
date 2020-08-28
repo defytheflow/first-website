@@ -1,0 +1,82 @@
+{% extends "logged_in_landing.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock head %}
+
+{% block title %} Library App{% endblock title %}
+
+{% block header %}
+{{ super() }}
+{% endblock header %}
+
+{% block home %}
+{{ super() }}
+{% endblock home %}
+
+{% block login %}
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="user_profile.html"> @{{ login }}</a></li>
+    <li><a href="settings.html"> Settings </a></li>
+    <li><a href="sign_out.html"><span class="glyphicon glyphicon-log-out"></span> Log out </a></li>
+  </ul>
+{% endblock login %}
+
+{% block app %}
+<li class = "active"><a href="library_app.html">Library</a></li>
+<li><a href="dictionary_app.html" style="color:#555;border-color:#dff0d8;">Dictionary</a></li>
+{% endblock app %}
+
+
+{% block body %}
+
+<div class="container">
+      <div class="jumbotron" style="background-color:#333333;color:white;">
+        <form method="post" action="/library_app.html">
+        <div class="row">
+              <div id="custom-search-input" data-toggle="collapse" data-target="#demo">
+                <div class="input-group" style="width:55%;margin-left:22%;">
+                  <input type="text" name="book_title" autocomplete="off" class="search-query form-control"  placeholder="Введите название книжечки"/>
+                    <span class="input-group-btn" >
+                      <input class="btn btn-success"  type="submit" value="Defy" />
+                        <span class=" glyphicon glyphicon-search"></span>
+                    </span>
+                </div>
+              </div>
+	        </div>
+        </form>
+        <div id="demo" class="collapse">
+        <br>
+        <br>
+            <table class="table table-hover " style="width:55%;margin-left:22%;">
+        <tbody>
+          <tr>
+              <td><strong>Title:</strong></td>
+              <td>{{ title }}</td>
+          </tr>
+          <tr>
+              <td><strong>Author:</strong></td>
+              <td>{{ author }}</td>
+          </tr>
+          <tr>
+              <td><strong>Genre:</strong></td>
+              <td>{{ genre }}</td>
+          </tr>
+          <tr>
+              <td><strong>Year:</strong></td>
+              <td>{{ year }}</td>
+          </tr>
+          <tr>
+              <td><strong>Status:</strong></td>
+              <td>{{ status }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+        </div>
+      </div>
+</div>
+
+{% endblock body %}
+
+<input type="submit" class="btn btn-success" name="delete_account" value="Show my library">

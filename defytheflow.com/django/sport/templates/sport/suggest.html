@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'sport/css/list.css' %}">
+{% endblock %}
+{% block title %}Suggest{% endblock %}
+
+{% block content %}
+<form>
+<div class="alert alert-primary" role="alert">
+  <p>My suggestion for today is to train:</p>
+    {% for sugg in suggestion %}
+        <h4>{{ sugg }}</h4>
+    {% endfor %}
+  <hr>
+    <p class="mb-0">Check your all time stats <a href="{% url 'all-time-stats' %}"><strong>here</strong></a>.</p>
+</div>
+</form>
+
+<nav class="navbar fixed-bottom navbar-light">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+        <a href="../"><input type="button" class="btn btn-lg btn-success" value="Back"
+        style="background-color: #FF1493;border-color: #000;"></a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}

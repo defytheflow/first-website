@@ -1,0 +1,44 @@
+{% extends "logged_in_landing.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock head %}
+
+{% block title %} Library App{% endblock title %}
+
+{% block header %}
+{{ super() }}
+{% endblock header %}
+
+{% block home %}
+{{ super() }}
+{% endblock home %}
+
+{% block login %}
+{{ super() }}
+{% endblock login %}
+
+{% block app %}
+<li><a href="library_app.html" style="color:#555;border-color:#dff0d8;">Library</a></li>
+<li class = "active"><a href="#" >Dictionary</a></li>
+{% endblock app %}
+
+
+{% block body %}
+
+<div class="container" >
+  <ul class="nav nav-tabs nav-justified">
+    <li><a href="library_app.html" style="color:#555;border-color:#dff0d8;">1</a></li>
+    <li><a href="dictionary_app.html" style="color:#555;border-color:#dff0d8;">2</a></li>
+  </ul>
+</div>
+
+<br>
+
+<div class="container">
+      <div class="jumbotron" style="background-color:#333333;color:white;">
+
+      </div>
+</div>
+
+{% endblock body %}

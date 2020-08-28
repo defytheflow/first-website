@@ -1,0 +1,38 @@
+{% extends "user_profile.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock head %}
+
+{% block title %} @{{ login }} {% endblock title %}
+
+{% block header %}
+{{ super() }}
+{% endblock header %}
+
+{% block home %}
+{{ super() }}
+{% endblock home %}
+
+{% block login %}
+{{ super () }}
+{% endblock login %}
+
+{% block body %}
+
+<div class="container">
+  <div class="jumbotron" style="background-color:#333333;color:white;">
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" style="margin-left:30%;width:40%;font-size:20px;">
+            Account settings</button>
+
+    <div id="demo" class="collapse ">
+        <br>
+        <br>
+        <form method="post" action="/settings.html">
+          <input type="submit" class="btn btn-danger" name="delete_account" value="Delete my account" style="width:33%;margin-left:33%;">
+        </form>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

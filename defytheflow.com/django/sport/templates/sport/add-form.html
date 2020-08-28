@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'sport/css/add_form.css' %}">
+{% endblock %}
+
+{% block title %}Add New Workout{% endblock %}
+
+{% block content %}
+
+<form id="add" method="post" action='/sport/add-new-workout/'> {% csrf_token %}
+    <label for="date">Date</label>
+    <input class="form-control form-control-lg" type="text" id="date" name="date" autocomplete="off" required
+    value="{{ today }}">
+    <label for="body_part1">Body part</label>
+    <input class="form-control form-control-lg" type="text" id="body_part1" name="body_part1" autocomplete="off" required
+    autofocus>
+    <label for="num_exercises1">Exercises</label>
+    <input class="form-control form-control-lg" type="text" id="num_exercises1" name="num_exercises1" autocomplete="off"
+    required>
+    <label for="body_part2">Body part</label>
+    <input class="form-control form-control-lg" type="text" id="body_part2" name="body_part2" autocomplete="off">
+    <label for="num_exercises2">Exercises</label>
+    <input class="form-control form-control-lg" type="text" id="num_exercises2" name="num_exercises2" autocomplete="off">
+    <label for="cardio">Cardio</label>
+    <input class="form-control form-control-lg" type="text" id="cardio" name="cardio" autocomplete="off">
+    <label for="cardio_load">Cardio load</label>
+    <input class="form-control form-control-lg" type="text" id="cardio_load" name="cardio_load" autocomplete="off">
+    <div class="form-group">
+        <label for="summary">Summary</label>
+        <textarea class="form-control" id="summary" name="summary" rows="3" required></textarea>
+    </div>
+</form>
+
+<nav class="navbar fixed-bottom navbar-light">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a href="../"><input type="button" class="btn btn-lg btn-success" value="Back"
+            style="background-color: #FF1493;border-color: #000;"></a>
+            <button type="submit" form="add" class="btn btn-lg btn-success" style="border-color: black;
+             background-color:#FF1493;">Add workout</button>
+        </li>
+    </ul>
+</nav>
+
+{% endblock %}

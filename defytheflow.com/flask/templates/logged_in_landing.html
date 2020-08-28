@@ -1,0 +1,30 @@
+{% extends "landing.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock head %}
+
+{% block title %} Logged in Landing {% endblock title %}
+
+{% block header %}
+{{ super() }}
+{% endblock header %}
+
+{% block home %}
+<li><a href="logged_in_landing.html"> Home </a></li>
+<li><a href="library_app.html">Library</a></li>
+<li><a href="dictionary_app.html">Dictionary</a></li>
+{% endblock home %}
+
+{% block login %}
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="user_profile.html"> @{{ login }} </a></li>
+    <li><a href="settings.html"> Settings </a></li>
+    <li><a href="sign_out.html"><span class="glyphicon glyphicon-log-out"></span> Log out </a></li>
+  </ul>
+{% endblock login %}
+
+
+{% block body %}
+{{ super() }}
+{% endblock body %}

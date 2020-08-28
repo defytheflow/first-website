@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock head %}
+
+{% block title %} Successful Sign Up {% endblock title %}
+
+{% block header %}
+{{ super() }}
+{% endblock header %}
+
+{% block home %}
+<li><a href="logged_in_landing.html"> Home </a></li>
+<li><a href="library_app.html">Library</a></li>
+<li><a href="dictionary_app.html">Dictionary</a></li>
+{% endblock home %}
+
+{% block login %}
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="user_profile.html">@{{ login }}</a></li>
+  </ul>
+{% endblock login %}
+
+{% block body %}
+
+<div class="container">
+  <div class="jumbotron" style="margin-left:17%;margin-right:17%;">
+    <div class="alert alert-success" style="text-align: center;">
+        <strong>Welcome to Defytheflow!</strong> You have signed up as <a href="user_profile.html">@{{ login }}</a>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

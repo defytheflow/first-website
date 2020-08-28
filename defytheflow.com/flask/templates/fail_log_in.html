@@ -1,0 +1,41 @@
+{% extends "log_in.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock head %}
+
+{% block title %} Fail log in {% endblock title %}
+
+{% block header %}
+{{ super() }}
+{% endblock header %}
+
+{% block body %}
+<div class="container">
+  <div class="jumbotron" style="margin-left:17%;margin-right:17%;background-color:#333333;color:white;">
+    <div class="alert alert-danger alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p style="font-size:115%;"><strong>Try again.</strong> Wrong login or password.</p>
+    </div>
+    <h2 style="text-align:center;">Log in</h2>
+    <br>
+    <form method="post" action="/log_in.html">
+      <div class="form-group input-lg" style="">
+        <label>Login:</label>
+        <input type="text" class="form-control" name="login">
+      </div>
+      <br>
+      <div class="form-group input-lg" style="">
+        <label>Password:</label>
+        <input type="password" class="form-control" name="password">
+      </div>
+      <br>
+      <div class="form-group input-lg" style="">
+        <br>
+        <input type="submit" class="form-control">
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock body %}
+

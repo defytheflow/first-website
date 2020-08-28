@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock head %}
+
+{% block title %} Sign Out {% endblock title %}
+
+{% block header %}
+{{ super() }}
+{% endblock header %}
+
+{% block home %}
+{{ super() }}
+{% endblock home %}
+
+{% block login %}
+{{ super() }}
+{% endblock login %}
+
+{% block body %}
+
+<div class="container">
+  <div class="jumbotron" style="margin-left:17%;margin-right:17%;background-color:#333333;color:white;">
+    <div class="alert alert-warning" style="text-align: center;">
+        <strong>Your account @{{ login }} has been deleted!</strong> :(
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

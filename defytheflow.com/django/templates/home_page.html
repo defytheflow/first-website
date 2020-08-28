@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'home_page.css' %}">
+{% endblock %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="/" style="color:#FF1493;">Home</a>
+
+             {% if user.is_authenticated %}
+            <a class="nav-link" href="sport/" style="color:#FF1493;">Sport</a>
+            <a class="nav-link" href="logout/" style="color:#FF1493;">Log out</a>
+            {% else %}
+            <a class="nav-link" href="login/" style="color:#FF1493;">Log in</a>
+            {% endif %}
+
+            {% if user.is_superuser %}
+            <a class="nav-link" href="admin/" style="color:#FF1493;">Admin</a>
+            {% endif %}
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading" style="text-align:center;">Welcome to defytheflow.com!</h1>
+        <p class="lead"></p>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p class="mt-5 mb-3 text-muted" style="text-align:center;">&copy; Defytheflow 2019</p>
+        </div>
+      </footer>
+    </div>
+{% endblock %}

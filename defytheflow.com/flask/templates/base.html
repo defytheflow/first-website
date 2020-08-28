@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{% endblock head %}
+</head>
+
+<body>
+{% block header %}
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="landing.html" style="color:rgb(255,20,147);">Defytheflow</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              {% block home %}
+              <li><a href="landing.html"> Home </a></li>
+              {% endblock home %}
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Info <span class="caret"></span></a>
+                <ul class="dropdown-menu ">
+                  <li><a href="#"> About Apps </a></li>
+                  <li class="divider"></li>
+                  <li><a href="#"> About Company </a></li>
+                  <li class="divider"></li>
+                  <li><a href="#"> About Founder </a></li>
+                </ul>
+              <li><a href="#">Donate</a></li>
+              {% block apps %}
+                <li><a href="library.html"></a></li>
+                <li><a href="dictionary.html"></a></li>
+              {% endblock apps %}
+              </ul>
+        <!--<button class="btn btn-danger navbar-btn">Button</button>-->
+            {% block login %}
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="sign_up.html"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+              <li><a href="log_in.html"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+            </ul>
+            {% endblock login %}
+          </div>
+        </div>
+      </nav>
+
+    <div class="container">
+      <div class="jumbotron" style="text-align:center;background-color:#333333;">
+        <h1 style="color:rgb(255,20,147);font-size:45px;">Home of True Education</h1>
+      </div>
+    </div>
+{% endblock header %}
+
+{% block body %}
+
+{% endblock body %}
+
+<p style="text-align: center">&copy; Copyright 2019 by Defytheflow</p>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock head %}
+
+{% block title %} Log in {% endblock title %}
+
+{% block header %}
+{{ super() }}
+{% endblock header %}
+
+{% block login %}
+{{ super() }}
+{% endblock login %}
+
+{% block body %}
+
+<div class="container">
+  <div class="jumbotron" style="margin-left:17%;margin-right:17%;background-color:#333333;color:white;">
+    <h2 style="text-align:center;">Log in</h2>
+    <br>
+    <form method="post" action="/log_in.html">
+      <div class="form-group" style="">
+        <label>Login:</label>
+        <input type="text" class="form-control input-lg" name="login">
+      </div>
+      <div class="form-group" style="">
+        <label>Password:</label>
+        <input type="password" class="form-control input-lg" name="password">
+      </div>
+      <div class="form-group" style="">
+        <br>
+        <input type="submit" class="form-control input-lg">
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock body %}

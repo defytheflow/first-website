@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'sport/css/detail.css' %}">
+{% endblock %}
+
+{% block title %}{{ workout.date }} Detail {% endblock %}
+
+{% block content %}
+
+<ul class="list-group list-group-flush" style="padding-top:30px;">
+    <li class="list-group-item list-group-item-action" style="border-radius: 5px;
+    border-bottom-left-radius: 0; border-bottom-right-radius: 0;"><strong>Date: </strong>{{workout.date}}</li>
+    <li class="list-group-item list-group-item-action"><strong>Body part: </strong>{{workout.body_part1}}</li>
+    <li class="list-group-item list-group-item-action"><strong>Exercises: </strong>{{workout.num_exercises1}}</li>
+    {% if workout.body_part2%}
+       <li class="list-group-item list-group-item-action"><strong>Body part: </strong>{{workout.body_part2}}</li>
+       <li class="list-group-item list-group-item-action"><strong>Exercises: </strong>{{workout.num_exercises2}}</li>
+    {% endif %}
+    {% if workout.cardio %}
+       <li class="list-group-item list-group-item-action"><strong>Cardio: </strong>{{workout.cardio}}</li>
+       <li class="list-group-item list-group-item-action"><strong>Load: </strong>{{workout.cardio_load}}</li>
+    {% endif %}
+    <li class="list-group-item list-group-item-action" style="border-radius: 5px;
+    border-top-left-radius: 0; border-top-right-radius: 0;"><strong>Summary: </strong>{{workout.summary}}</li>
+</ul>
+
+<nav class="navbar fixed-bottom navbar-light">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a href="../"><input type="button" class="btn btn-lg btn-success" value="Back"
+        style="background-color: #FF1493;border-color: #000;"></a>
+        <a href="{% url 'update-workout-detail' workout.date %}"><input type="button" class="btn btn-lg btn-success" value="Edit"
+        style="background-color: #FF1493;border-color: #000;"></a>
+        <a href="{% url 'delete-workout' workout.date %}"><input type="button" class="btn btn-lg btn-danger" value="Delete"
+        style="background-color: #FF1493;border-color: #000;"></a>
+      </li>
+    </ul>
+</nav>
+{% endblock %}
